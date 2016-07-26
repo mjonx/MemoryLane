@@ -1,0 +1,25 @@
+<h1>Trips</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @trips.each do |trips| %>
+      <tr>
+        <td><%= trips.title %></td>
+        <td><%= trips.category %></td>
+        <td><%= link_to 'Show', "/trips/show/#{trips.id}" %></td>
+        <td><%= link_to 'Edit', "/trips/edit/#{trips.id}/edit" %></td>
+        <td><%= link_to "Delete", "/trips/delete/#{trips.id}", method: :destroy, data: {confirm: 'are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>

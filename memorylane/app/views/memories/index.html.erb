@@ -1,0 +1,24 @@
+
+<h1>Memories</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @memories.each do |memory| %>
+      <tr>
+        <td><%= memory.title %></td>
+        <td><%= memory.category %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>

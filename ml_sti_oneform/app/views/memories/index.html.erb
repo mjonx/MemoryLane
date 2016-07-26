@@ -1,0 +1,30 @@
+
+<h1>Memories</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @memories.each do |memory| %>
+      <tr>
+        <td><%= memory.title %></td>
+        <td><%= memory.category %></td>
+        <td><%= link_to 'Show', sti_memory_path(memory.category, memory) %></td>
+        <td><%= link_to 'Edit', sti_memory_path(memory.category, memory, :edit) %></td>
+        <td><%= link_to 'Destroy', sti_memory_path(memory.category, memory), method: :delete, data: { confirm: 'Are you sure you want to delete this memory?' } %></td>
+        <td><%= link_to "See all #{memory.category.pluralize}", sti_memory_path(memory.category) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+<%= link_to 'See all memories', sti_memory_path %><br>
+<%= link_to "New #{@category}", sti_memory_path(@category, nil, :new) %>

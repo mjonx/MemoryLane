@@ -1,0 +1,42 @@
+<%= form_for(@memory) do |f| %>
+  <% if @memory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@memory.errors.count, "error") %> prohibited this memory from being saved:</h2>
+
+      <ul>
+      <% @memory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+      <%= f.label :category %><br>
+      <%= f.select :category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </div>
+
+  <div class="field">
+    <%= f.label :venue %><br>
+    <%= f.text_field :venue %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
