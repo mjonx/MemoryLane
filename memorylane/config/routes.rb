@@ -5,11 +5,27 @@ Rails.application.routes.draw do
 
   get '/trips', to: 'trips#index'
   get '/trips/new', to: 'trips#new'
-  get '/trips/edit/:id/edit', to: 'trips#edit'
   post '/trips', to: 'trips#create'
-  get '/trips/show/:id', to: 'trips#show'
-  patch '/trips/update/:id', to: 'trips#update'
-  delete '/trips/:id', to: 'trips#destroy'
+  get '/trips/:id', to: 'trips#show'
+  get '/trips/:id/edit', to: 'trips#edit'
+  patch '/trips/:id', to: 'trips#update'
+  delete '/trips/:id', to: 'trips#delete'
+
+  get '/concerts', to: 'concerts#index'
+  get '/concerts/new', to: 'concerts#new'
+  post '/concerts', to: 'concerts#create'
+  get '/concerts/:id', to: 'concerts#show'
+  get '/concerts/:id/edit', to: 'concerts#edit'
+  patch '/concerts/:id', to: 'concerts#update'
+  delete '/concerts/:id', to: 'concerts#delete'
+
+  get '/achievements', to: 'achievements#index'
+  get '/achievements/new', to: 'achievements#new'
+  post '/achievements', to: 'achievements#create'
+  get '/achievements/:id', to: 'achievements#show'
+  get '/achievements/:id/edit', to: 'achievements#edit'
+  patch '/achievements/:id', to: 'achievements#update'
+  delete '/achievements/:id', to: 'achievements#delete'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

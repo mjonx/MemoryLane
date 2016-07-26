@@ -1,14 +1,14 @@
-<h1>Add new trip</h1>
+<h1>Add new achievement</h1>
 
-<%= form_tag("/trips", method: "post") do |f| %>
+<%= form_tag("/achievements", method: "post") do |f| %>
   <div class="field">
     <%= label_tag(:title) %><br>
-    <%= text_field(:trip, :title) %><br><br>
+    <%= text_field(:achievement, :title) %><br><br>
   </div>
 
   <div class="field">
-    <%= label_tag(:destination) %><br>
-    <%= text_field(:trip, :destination) %><br><br>
+    <%= label_tag(:date) %><br>
+    <%= date_field(:achievement, :date) %><br><br>
   </div>
 
   <div class="field">

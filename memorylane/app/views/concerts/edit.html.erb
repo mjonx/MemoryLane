@@ -1,2 +1,21 @@
-<h1>Concerts#edit</h1>
-<p>Find me in app/views/concerts/edit.html.erb</p>
+<h1>Editing <%= @concert.title %></h1>
+
+<%= form_tag("/concerts/#{@concert.id}", method: "patch") do |f| %>
+    <div class="field">
+      <%= label_tag(:title) %><br>
+      <%= text_field(:concert, :title) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= label_tag(:venue) %><br>
+      <%= text_field(:concert, :venue) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= label_tag(:category) %><br>
+      <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
+    </div>
+    <div class="actions">
+      <%= submit_tag("Submit") %>
+    </div>
+  <% end %>

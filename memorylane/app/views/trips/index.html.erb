@@ -14,12 +14,14 @@
       <tr>
         <td><%= trips.title %></td>
         <td><%= trips.category %></td>
-        <td><%= link_to 'Show', "/trips/show/#{trips.id}" %></td>
-        <td><%= link_to 'Edit', "/trips/edit/#{trips.id}/edit" %></td>
-        <td><%= link_to "Delete", "/trips/delete/#{trips.id}", method: :destroy, data: {confirm: 'are you sure?'} %></td>
+        <td><%= link_to 'Show', "/trips/#{trips.id}" %></td>
+        <td><%= link_to 'Edit', "/trips/#{trips.id}/edit" %></td>
+        <td><%= link_to 'Delete', "/trips/#{trips.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br><br>
+<%= link_to 'Add trip', "/trips/new" %><br>
+<%= link_to 'All memories', "/memories" %>

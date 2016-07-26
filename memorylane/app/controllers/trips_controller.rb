@@ -12,58 +12,42 @@ class TripsController < ApplicationController
     render 'new'
   end
 
-  def edit
-  end
-
-
   def create
     @trip = Trip.new(title: params[:trip][:title], destination: params[:trip][:destination], user_id: 1)
     @trip.save
     if @trip.save
-      redirect_to '/trips', notice: "#{category} was successfully created."
+      redirect_to '/trips'
     else
       render action: 'new'
     end
   end
 
-
-  def update
+  def edit
+    @trip = Trip.find(params[:id])
   end
 
-  def destroy
+  def update
     @trip = Trip.find(params[:id])
+    if @trip.update(title: params[:trip][:title], destination: params[:trip][:destination], user_id: 1)
+      redirect_to '/trips'
+    else
+      render action: 'index'
+    end
+  end
 
-      @trip.destroy
+  def delete
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    if @trip.destroy
+      redirect_to '/trips'
+    else
+      render action: 'index'
+    end
   end
 
   private
 
-  def set_category
-    @category = category
-  end
-
-  def category
-    Memory.categories.include?(params[:type]) ? params[:type] : "Memory"
-  end
-
-  def memory_params
-    params.require(category.underscore.to_sym).permit(send("#{category.underscore}_params"))
-  end
-
   def trip_params
     [:title, :destination]
   end
-
-  def concert_params
-    [:title, :venue]
-  end
-
-  def achievement_params
-    [:title, :date]
-  end
-
-
-
-
-
 end

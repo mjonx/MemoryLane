@@ -15,7 +15,7 @@
       <tr>
         <td><%= memory.title %></td>
         <td><%= memory.category %></td>
-
+        <td><%= link_to 'Show', "/#{memory.category.downcase.pluralize}/#{memory.id}" %></td>
       </tr>
     <% end %>
   </tbody>

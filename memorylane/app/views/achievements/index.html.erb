@@ -1,2 +1,27 @@
-<h1>Achievements#index</h1>
-<p>Find me in app/views/achievements/index.html.erb</p>
+<h1>Achievements</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @achievements.each do |achievements| %>
+      <tr>
+        <td><%= achievements.title %></td>
+        <td><%= achievements.category %></td>
+        <td><%= link_to 'Show', "/achievements/#{achievements.id}" %></td>
+        <td><%= link_to 'Edit', "/achievements/#{achievements.id}/edit" %></td>
+        <td><%= link_to 'Delete', "/achievements/#{achievements.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<%= link_to 'Add achievement', "/achievements/new" %><br>
+<%= link_to 'All memories', "/memories" %>

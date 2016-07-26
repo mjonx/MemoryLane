@@ -1,2 +1,27 @@
-<h1>Concerts#index</h1>
-<p>Find me in app/views/concerts/index.html.erb</p>
+<h1>Concerts</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Venue</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @concerts.each do |concerts| %>
+      <tr>
+        <td><%= concerts.title %></td>
+        <td><%= concerts.category %></td>
+        <td><%= link_to 'Show', "/concerts/#{concerts.id}" %></td>
+        <td><%= link_to 'Edit', "/concerts/#{concerts.id}/edit" %></td>
+        <td><%= link_to 'Delete', "/concerts/#{concerts.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<%= link_to 'Add concert', "/concerts/new" %><br>
+<%= link_to 'All memories', "/memories" %>

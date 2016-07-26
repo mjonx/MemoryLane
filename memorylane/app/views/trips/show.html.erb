@@ -3,4 +3,7 @@
 <p>Title: <%= @trip.title %></p>
 <p>Destination: <%= @trip.destination %></p>
 
-<%= link_to 'Back', '/trips' %>
+<%= link_to 'Edit', "/trips/#{@trip.id}/edit" %><br>
+<%= link_to 'Delete', "/trips/#{@trip.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
+<%= link_to 'Back to trips', '/trips' %><br>
+<%= link_to 'All memories', '/memories' %>

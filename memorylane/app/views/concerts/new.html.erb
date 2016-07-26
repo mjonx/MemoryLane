@@ -1,14 +1,14 @@
-<h1>Editing <%= @achievement.title %></h1>
+<h1>Add new concert</h1>
 
-<%= form_tag("/achievements/#{@achievement.id}", method: "patch") do |f| %>
+<%= form_tag("/concerts", method: "post") do |f| %>
     <div class="field">
       <%= label_tag(:title) %><br>
-      <%= text_field(:achievement, :title) %><br><br>
+      <%= text_field(:concert, :title) %><br><br>
     </div>
 
     <div class="field">
-      <%= label_tag(:date) %><br>
-      <%= date_field(:achievement, :date) %><br><br>
+      <%= label_tag(:venue) %><br>
+      <%= text_field(:concert, :venue) %><br><br>
     </div>
 
     <div class="field">
