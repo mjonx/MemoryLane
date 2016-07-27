@@ -1,0 +1,14 @@
+<h2>Welcome <%= current_user.first_name %>!</h2>
+<h3>Profile</h3>
+<%= image_tag(current_user.avatar.url(:thumb)) %>
+<p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
+<p>Email: <%= current_user.email %></p>
+
+<div>
+  <% if user_signed_in? %>
+    <p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+    <% else %>
+    <p><%= link_to('Login', new_user_session_path)  %></p>
+  <% end %>
+  <p><%= link_to('Edit profile', edit_user_registration_path)  %></p>
+</div>
