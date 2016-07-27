@@ -1,0 +1,9 @@
+<h1>My achievement</h1>
+
+<p>Title: <%= @achievement.title %></p>
+<p>Date: <%= @achievement.date %></p>
+
+<%= link_to 'Edit', "/achievements/#{@achievement.id}/edit" %><br>
+<%= link_to 'Delete', "/achievements/#{@achievement.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
+<%= link_to 'Back to achievements', '/achievements' %><br>
+<%= link_to 'All memories', '/memories' %>

@@ -1,0 +1,29 @@
+<h1>Trips</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @trips.each do |trips| %>
+    <% if trips.user_id == current_user.id %>
+      <tr>
+        <td><%= trips.title %></td>
+        <td><%= trips.category %></td>
+        <td><%= link_to 'Show', "/trips/#{trips.id}" %></td>
+        <td><%= link_to 'Edit', "/trips/#{trips.id}/edit" %></td>
+        <td><%= link_to 'Delete', "/trips/#{trips.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<%= link_to 'Add trip', "/trips/new" %><br>
+<%= link_to 'All memories', "/memories" %>

@@ -1,0 +1,9 @@
+<h1>My concert</h1>
+
+<p>Title: <%= @concert.title %></p>
+<p>Venue: <%= @concert.venue %></p>
+
+<%= link_to 'Edit', "/concerts/#{@concert.id}/edit" %><br>
+<%= link_to 'Delete', "/concerts/#{@concert.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
+<%= link_to 'Back to concerts', '/concerts' %><br>
+<%= link_to 'All memories', '/memories' %>

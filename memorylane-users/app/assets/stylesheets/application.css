@@ -17,3 +17,16 @@
  body {
   font-family: 'Open Sans', sans-serif;
 }
+
+th {
+  text-align: left;
+  color: #88D0C7;
+}
+
+ td {
+  padding: 10px 10px 10px 0px;
+ }
+
+.hidden {
+  display: none;
+}

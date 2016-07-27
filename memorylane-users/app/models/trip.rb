@@ -1,0 +1,2 @@
+class Trip < Memory
+end

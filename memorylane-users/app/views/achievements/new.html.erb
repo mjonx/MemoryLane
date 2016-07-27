@@ -1,0 +1,21 @@
+<h1>Add new achievement</h1>
+
+<%= form_tag("/achievements", method: "post") do |f| %>
+  <div class="field">
+    <%= label_tag(:title) %><br>
+    <%= text_field(:achievement, :title) %><br><br>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:date) %><br>
+    <%= date_field(:achievement, :date) %><br><br>
+  </div>
+
+  <div class="field hidden">
+    <%= label_tag(:category) %><br>
+    <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Submit") %>
+  </div>
+<% end %>

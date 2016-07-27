@@ -1,0 +1,33 @@
+<h1>Memories</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @memories.each do |memory| %>
+    <% if memory.user_id == current_user.id %>
+      <tr>
+        <td><%= memory.title %></td>
+        <td><%= memory.category %></td>
+        <td><%= link_to 'Show', "/#{memory.category.downcase.pluralize}/#{memory.id}" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br><br>
+<div>
+  <%= link_to('Add memory', memories_new_path)  %>
+  <% if user_signed_in? %>
+    <p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+    <% else %>
+    <p><%= link_to('Login', new_user_session_path)  %></p>
+  <% end %>
+  <p><%= link_to('View profile', root_path)  %></p>
+</div>
