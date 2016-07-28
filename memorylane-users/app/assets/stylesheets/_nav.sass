@@ -1,10 +1,4 @@
-$primary-color: #324152
-$primary-color-dark: #2A3747
-$white: #fff
-$light-grey: #f8f8f8
-$main-pink: #F16A6F
-$main-green: #AFD476
-$main-blue: #8FD3D4
+
 
 
 body
@@ -68,6 +62,7 @@ nav
   width: 100%
   position: absolute
   padding: 0px
+  margin-bottom: 72px
 
 #wrapper.toggled #page-content-wrapper
   position: absolute
@@ -83,14 +78,21 @@ nav
   padding: 0
   list-style: none
 
+  p
+    display: inline
+
   li
     text-indent: 20px
     line-height: 40px
+    color: $white
+    font-size: 14px
+    letter-spacing: 1px
 
   li a
     display: block
     text-decoration: none
     color: $white
+    padding: 10px
 
   li a:hover
     text-decoration: none
@@ -98,8 +100,9 @@ nav
     background: rgba(255,255,255,0.2)
 
   img
-    border-radius: 50%
-    border: 2px solid $main-pink
+    max-height: 24px
+    max-width: 26px
+    margin-right: 10px
 
   li a:active,
   li a:focus
@@ -112,9 +115,17 @@ nav
   border-bottom: 1px solid lighten($primary-color-dark, 10%)
   color: $white
   height: 72px
+  letter-spacing: 0px
+
+  img
+    border-radius: 50%
+    border: 2px solid $main-blue
+    max-height: 34px
+    max-width: 34px
 
   a
     color: $white
+    padding: 6px
 
   a:hover
     color: $main-pink
@@ -135,6 +146,7 @@ nav
   #page-content-wrapper
     padding: 0px
     position: relative
+    margin-bottom: 72px
 
   #wrapper.toggled #page-content-wrapper
     position: relative

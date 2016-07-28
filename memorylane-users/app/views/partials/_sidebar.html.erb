@@ -1,0 +1,16 @@
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <%= link_to root_path do %>
+              <p><%= image_tag(current_user.avatar.url(:thumb)) %>
+                Hi, <%= current_user.first_name %></p>
+            <% end %>
+        </li>
+        <li><%= link_to memories_path do %><%= image_tag 'icons/icon-home-pnk.svg' %><p>My memories</p><% end %></li>
+        <li><%= link_to root_path do %><%= image_tag 'icons/icon-locations-pnk.svg' %><p>Locations</p><% end %></li>
+        <li><%= link_to root_path do %><%= image_tag 'icons/icon-categories-pnk.svg' %><p>Categories</p><% end %></li>
+        <li><%= link_to edit_user_registration_path do %><%= image_tag 'icons/icon-gear-pnk.svg' %><p>Edit profile</p><% end %></li>
+        <li><%= link_to destroy_user_session_path, :method => :delete do %><%= image_tag 'icons/icon-logout-pnk.svg' %><p>Log out</p><% end %></li>
+
+    </ul>
+</div>

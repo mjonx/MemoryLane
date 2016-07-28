@@ -1,5 +1,16 @@
-<h2>Add new memory</h2>
+<div class="row main-wrap">
+  <h3>Add new memory</h3>
+  <div class="col-sm-4 col-xs-4 add-memory">
+    <%= link_to concerts_new_path do %><%= image_tag('icons/icon-microphone.svg', class: "memory-icon") %><p>CONCERT</p><% end %>
+  </div>
 
-<%= link_to('Add trip', trips_new_path)  %><br>
-<%= link_to('Add concert', concerts_new_path)  %><br>
-<%= link_to('Add achievement', achievements_new_path)  %><br>
+  <div class="col-sm-4 col-xs-4 add-memory">
+    <%= link_to trips_new_path do %><%= image_tag('icons/icon-map-pin.svg', class: "memory-icon") %><p>TRIP</p><% end %>
+  </div>
+
+  <div class="col-sm-4 col-xs-4 add-memory">
+    <%= link_to achievements_new_path do %><%= image_tag('icons/icon-medal.svg', class: "memory-icon") %><p>ACHIEVEMENT</p><% end %> 
+  </div>
+
+
+</div>

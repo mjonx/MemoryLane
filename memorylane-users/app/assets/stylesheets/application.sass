@@ -1,21 +1,18 @@
 /*
- *= require_tree .
  *= require_self
  */
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
+@import "colors"
 @import "nav"
 @import "profile"
+@import "login"
+@import "typography"
+@import "add-memory"
 
 $font-stack: 'Open Sans', sans-serif
-$primary-color: #324152
-$white: #fff
-$light-grey: #f8f8f8
-$main-pink: #F16A6F
-$main-green: #AFD476
-$main-blue: #8FD3D4
-$main-blue-dark: #2A3747
+
 
 body
   font: 100% $font-stack
@@ -23,8 +20,14 @@ body
   font-size: 16px
   overflow-x: hidden
 
+
 a
   color: $primary-color
+  webkit-transition: all 300ms cubic-bezier(.55,0,.1,1)
+    -moz-transition: all 300ms cubic-bezier(.55,0,.1,1)
+    -ms-transition: all 300ms cubic-bezier(.55,0,.1,1)
+    -o-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  transition: all 300ms cubic-bezier(.55,0,.1,1)
 
 a:hover
   color: lighten( $primary-color, 10% )
@@ -37,9 +40,13 @@ a:hover
   margin: 0 auto
   text-align: center
 
+.main-wrap
+  padding: 40px
+
 .col-sm-15, .col-xs-15
   width: 20%
   float: left
+  text-align: center
 
 th
   text-align: left

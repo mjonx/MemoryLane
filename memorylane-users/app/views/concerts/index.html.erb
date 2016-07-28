@@ -1,29 +1,31 @@
-<h1>Concerts</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Venue</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-</thead>
-  <tbody>
-    <% @concerts.each do |concerts| %>
-    <% if concerts.user_id == current_user.id %>
+<div class="row">
+  <h3>Concerts</h3>
+  <table>
+    <thead>
       <tr>
-        <td><%= concerts.title %></td>
-        <td><%= concerts.category %></td>
-        <td><%= link_to 'Show', "/concerts/#{concerts.id}" %></td>
-        <td><%= link_to 'Edit', "/concerts/#{concerts.id}/edit" %></td>
-        <td><%= link_to 'Delete', "/concerts/#{concerts.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
+        <th>Name</th>
+        <th>Venue</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
+  </thead>
+    <tbody>
+      <% @concerts.each do |concerts| %>
+      <% if concerts.user_id == current_user.id %>
+        <tr>
+          <td><%= concerts.title %></td>
+          <td><%= concerts.category %></td>
+          <td><%= link_to 'Show', "/concerts/#{concerts.id}" %></td>
+          <td><%= link_to 'Edit', "/concerts/#{concerts.id}/edit" %></td>
+          <td><%= link_to 'Delete', "/concerts/#{concerts.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
+        </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br><br>
-<%= link_to 'Add concert', "/concerts/new" %><br>
-<%= link_to 'All memories', "/memories" %>
+  <br><br>
+  <%= link_to 'Add concert', "/concerts/new" %><br>
+  <%= link_to 'All memories', "/memories" %>
+</div>

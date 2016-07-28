@@ -1,6 +1,7 @@
-<h1>Editing <%= @trip.title %></h1>
+<div class="row">
+  <h3>Editing <%= @trip.title %></h3>
 
-<%= form_tag("/trips/#{@trip.id}", method: "patch") do |f| %>
+  <%= form_tag("/trips/#{@trip.id}", method: "patch") do |f| %>
     <div class="field">
       <%= label_tag(:title) %><br>
       <%= text_field(:trip, :title) %><br><br>
@@ -19,3 +20,4 @@
       <%= submit_tag("Submit") %>
     </div>
   <% end %>
+</div>
