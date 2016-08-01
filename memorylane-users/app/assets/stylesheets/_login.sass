@@ -9,5 +9,55 @@
   align-items: center
 
   img
+    width: 70%
     max-width: 400px
     margin-bottom: 40px
+
+  a
+    color: $white
+    font-size: 14px
+
+  form
+    width: 60%
+    margin-top: 40px
+
+  label
+    color: transparentize($white, .2)
+    font-size: 12px
+    font-weight: normal
+    margin-top: 20px
+
+  input#user_email, input#user_password
+    border: none
+    background-color: transparentize($white, .3)
+    padding: 12px
+    outline: none
+    max-width: 340px
+    margin-top: 24px
+    width: 90%
+
+  input#user_email:-webkit-autofill, input#user_password:-webkit-autofill
+    -webkit-box-shadow: 0 0 0px 1000px white inset
+
+  ::-webkit-input-placeholder
+    color: $primary-color
+
+  :-moz-placeholder
+    color: $primary-color
+
+  ::-moz-placeholder
+    color: $primary-color
+
+  :-ms-input-placeholder
+    color: $primary-color
+
+.submit-login input
+  max-width: 340px
+  width: 90%
+  padding: 12px
+  background-color: $main-pink
+  border: none
+  color: $white
+
+.submit-login input:hover
+  background-color: $main-pink-hover

@@ -1,7 +1,14 @@
-<div class="row">
-  <h3>Add new trip</h3>
+<div class="row header trip-header">
+  <%= image_tag('icons/icon-map-pin-fill.svg', class: "memory-icon") %>
+</div>
 
-  <%= form_tag("/trips", method: "post") do |f| %>
+<div class="row title-bar title-bar-green">
+  <h3>Add new trip</h3>
+</div>
+
+
+<div class="row">
+    <%= form_tag("/trips", method: "post") do |f| %>
     <div class="field">
       <%= label_tag(:title) %><br>
       <%= text_field(:trip, :title) %><br><br>
@@ -16,7 +23,7 @@
       <%= label_tag(:category) %><br>
       <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
     </div>
-    <div class="actions">
+    <div class="actions submit submit-green">
       <%= submit_tag("Submit") %>
     </div>
   <% end %>

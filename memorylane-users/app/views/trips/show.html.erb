@@ -1,6 +1,12 @@
-<div class="row">
-  <h3>My trip</h3>
+<div class="row header trip-header">
+  <%= image_tag('icons/icon-map-pin-fill.svg', class: "memory-icon") %>
+</div>
 
+<div class="row title-bar title-bar-green">
+  <h3><%= @trip.title %></h3>
+</div>
+
+<div class="row">
   <p>Title: <%= @trip.title %></p>
   <p>Destination: <%= @trip.destination %></p>
 

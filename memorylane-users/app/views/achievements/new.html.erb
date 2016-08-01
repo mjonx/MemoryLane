@@ -1,6 +1,12 @@
-<div class="row">
-  <h3>Add new achievement</h3>
+<div class="row header achievement-header">
+  <%= image_tag('icons/icon-medal-fill.svg', class: "memory-icon") %>
+</div>
 
+<div class="row title-bar title-bar-pink">
+  <h3>Add new achievement</h3>
+</div>
+
+<div class="row">
   <%= form_tag("/achievements", method: "post") do |f| %>
     <div class="field">
       <%= label_tag(:title) %><br>
@@ -16,7 +22,7 @@
       <%= label_tag(:category) %><br>
       <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
     </div>
-    <div class="actions">
+    <div class="actions submit submit-pink">
       <%= submit_tag("Submit") %>
     </div>
   <% end %>

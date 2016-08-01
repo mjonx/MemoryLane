@@ -23,12 +23,7 @@
 
 
 <div class="row profile-links">
-    <% if user_signed_in? %>
-      <p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
-      <% else %>
-      <p><%= link_to('Login', new_user_session_path)  %></p>
-    <% end %>
-  <p><%= link_to('Edit profile', edit_user_registration_path)  %></p>
+    
   <%= link_to image_tag("icons/tab-plus-fill-sm.svg"), memories_new_path %>
 
 </div>

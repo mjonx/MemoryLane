@@ -10,6 +10,9 @@
 @import "login"
 @import "typography"
 @import "add-memory"
+@import "cat-blue"
+@import "cat-green"
+@import "cat-pink"
 
 $font-stack: 'Open Sans', sans-serif
 
@@ -20,17 +23,21 @@ body
   font-size: 16px
   overflow-x: hidden
 
-
 a
   color: $primary-color
   webkit-transition: all 300ms cubic-bezier(.55,0,.1,1)
-    -moz-transition: all 300ms cubic-bezier(.55,0,.1,1)
-    -ms-transition: all 300ms cubic-bezier(.55,0,.1,1)
-    -o-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  -moz-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  -ms-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  -o-transition: all 300ms cubic-bezier(.55,0,.1,1)
   transition: all 300ms cubic-bezier(.55,0,.1,1)
 
 a:hover
   color: lighten( $primary-color, 10% )
+  webkit-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  -moz-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  -ms-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  -o-transition: all 300ms cubic-bezier(.55,0,.1,1)
+  transition: all 300ms cubic-bezier(.55,0,.1,1)
 
 .container-fluid
   padding-left: 0px
@@ -39,9 +46,15 @@ a:hover
 .row
   margin: 0 auto
   text-align: center
+  padding: 40px
+
+.nopad-top-bottom
+  padding-top: 0px
+  padding-bottom: 0px
 
 .main-wrap
   padding: 40px
+  max-width: 700px
 
 .col-sm-15, .col-xs-15
   width: 20%
