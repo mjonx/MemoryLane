@@ -9,7 +9,7 @@
 <div class="row">
   <%= form_tag("/concerts", method: "post") do |f| %>
     <div class="field">
-      <%= label_tag(:title) %><br>
+      <%= label_tag(:title, 'Memory title') %><br>
       <%= text_field(:concert, :title) %>
     </div>
 
