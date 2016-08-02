@@ -3,8 +3,24 @@
 </div>
 
 <div class="row title-bar title-bar-green">
-  <h3>My trip memories</h3>
+  <h3>My trips</h3>
 </div>
+
+<div class="row">
+  <% @trips.each do |trip| %>
+    <% if trip.user_id == current_user.id %>
+      <div class="col-sm-4 col-xs-12 memory-card">
+        <h4><%= trip.title %></h4>
+        <p><%= trip.location %></p>
+        <p><%= trip.date %></p>
+        <p><%= link_to 'Show', "/#{trip.category.downcase.pluralize}/#{trip.id}" %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+
 
 <div class="row">
   <table>

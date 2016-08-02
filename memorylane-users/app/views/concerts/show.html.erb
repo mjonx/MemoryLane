@@ -7,11 +7,51 @@
 </div>
 
 <div class="row">
-  <p>Title: <%= @concert.title %></p>
-  <p>Venue: <%= @concert.venue %></p>
+  <div class="col-md-6 col-sm-12 memory-box-single">
+    <h4>MEMORY DETAILS:</h4>
+    <div class="memory-details-single">
+      <table>
+        <tbody>
+          <tr>
+            <td><i class="fa fa-universal-access" aria-hidden="true"></i></td>
+            <td><%= @concert.artist %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-map-marker" aria-hidden="true"></i></td>
+            <td><%= @concert.location %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-calendar-o" aria-hidden="true"></i></td>
+            <td><%= @concert.date %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-building-o" aria-hidden="true"></i></td>
+            <td><%= @concert.venue %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users" aria-hidden="true"></i></td>
+            <td><%= @concert.friends %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+            <td><%= @concert.notes %></td>
+          </tr>
+        </tbody>
+      </table>
 
-  <%= link_to 'Edit', "/concerts/#{@concert.id}/edit" %><br>
-  <%= link_to 'Delete', "/concerts/#{@concert.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-12 memory-box-btns">
+    <div class="col-md-6 col-sm-6 edit-btn">
+      <i class="fa fa-pencil" aria-hidden="true"></i> <%= link_to 'Edit', "/concerts/#{@concert.id}/edit" %><br>
+    </div>
+    <div class="col-md-6 col-sm-6 delete-btn">
+      <i class="fa fa-trash-o" aria-hidden="true"></i> <%= link_to 'Delete', "/concerts/#{@concert.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <%= link_to 'Back to concerts', '/concerts' %><br>
   <%= link_to 'All memories', '/memories' %>
 </div>

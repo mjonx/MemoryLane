@@ -3,35 +3,30 @@
 </div>
 
 <div class="row title-bar title-bar-blue">
-  <h3>My concert memories</h3>
+  <h3>My concerts</h3>
 </div>
 
-<div class="row">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Venue</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-  </thead>
-    <tbody>
-      <% @concerts.each do |concerts| %>
-      <% if concerts.user_id == current_user.id %>
-        <tr>
-          <td><%= concerts.title %></td>
-          <td><%= concerts.category %></td>
-          <td><%= link_to 'Show', "/concerts/#{concerts.id}" %></td>
-          <td><%= link_to 'Edit', "/concerts/#{concerts.id}/edit" %></td>
-          <td><%= link_to 'Delete', "/concerts/#{concerts.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
-        </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row cards">
+  <% @concerts.each do |concert| %>
+    <% if concert.user_id == current_user.id %>
+      <div class="col-lg-4 col-md-6 col-sm-12 memory-card">
+        <%= image_tag('icons/pin-microphone.svg', class: "memory-pin") %>
+        <div class="memory-box">
+          <h4><%= concert.title.upcase %></h4>
+          <p><i class="fa fa-building-o" aria-hidden="true"></i> <%= concert.venue %></p>
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= concert.location %></p>
+          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= concert.date %></p>
+          <div class="btn btn-blue">
+            <%= link_to 'VIEW MEMORY', "/#{concert.category.downcase.pluralize}/#{concert.id}" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
+
+<div class="row">
   <br><br>
   <%= link_to 'Add concert', "/concerts/new" %><br>
   <%= link_to 'All memories', "/memories" %>

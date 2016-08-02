@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728191557) do
+ActiveRecord::Schema.define(version: 20160801202510) do
 
   create_table "achievements", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,10 +28,17 @@ ActiveRecord::Schema.define(version: 20160728191557) do
     t.string   "venue"
     t.date     "date"
     t.string   "category"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.string   "notes"
+    t.string   "artist"
+    t.string   "location"
+    t.string   "friends"
+    t.string   "memoryphoto_file_name"
+    t.string   "memoryphoto_content_type"
+    t.integer  "memoryphoto_file_size"
+    t.datetime "memoryphoto_updated_at"
   end
 
   create_table "trips", force: :cascade do |t|

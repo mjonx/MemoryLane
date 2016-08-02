@@ -1,35 +1,36 @@
-<div class="row">
-  <h3>Memories</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-  </thead>
-    <tbody>
-      <% @memories.each do |memory| %>
-      <% if memory.user_id == current_user.id %>
-        <tr>
-          <td><%= memory.title %></td>
-          <td><%= memory.category %></td>
-          <td><%= link_to 'Show', "/#{memory.category.downcase.pluralize}/#{memory.id}" %></td>
-        </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-  <br><br>
-  <div>
-    <%= link_to('Add memory', memories_new_path)  %>
-    <% if user_signed_in? %>
-      <p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
-      <% else %>
-      <p><%= link_to('Login', new_user_session_path)  %></p>
-    <% end %>
-    <p><%= link_to('View profile', root_path)  %></p>
-  </div>
+<div class="row profile-header" style="background-image: url('<%= current_user.coverphoto.url %>'); background-size: cover; background-position: center;">
+  <%= image_tag(current_user.avatar.url(:small)) %>
+  <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
 </div>
+
+<div class="row title-bar title-bar-pink">
+  <h3>MY MEMORY LANE</h3>
+</div>
+
+<div class="row cards">
+  <% @memories.each do |memory| %>
+    <% if memory.user_id == current_user.id %>
+      <div class="col-lg-4 col-md-6 col-sm-12 memory-card">
+        <%= image_tag(memory_pin_name(memory.category), class: "memory-pin") %>
+        <div class="memory-box">
+          <h4><%= memory.title %></h4>
+          <p><%= memory.location %></p>
+          <p><%= memory.date %></p>
+          <button class='btn btn-<%= memory_button_color(memory.category) %>'>
+            <%= link_to 'Show', "/#{memory.category.downcase.pluralize}/#{memory.id}" %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<!-- <div class="row">
+  <%= link_to('Add memory', memories_new_path)  %>
+  <% if user_signed_in? %>
+    <p><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+    <% else %>
+    <p><%= link_to('Login', new_user_session_path)  %></p>
+  <% end %>
+  <p><%= link_to('View profile', root_path)  %></p>
+</div> -->

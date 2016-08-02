@@ -1,2 +1,3 @@
 class Concert < Memory
+  
 end
