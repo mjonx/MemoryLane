@@ -1,5 +1,5 @@
-<div class="row header concert-header">
-  <%= image_tag('icons/icon-microphone-fill.svg', class: "memory-icon") %>
+<div class="row header concert-header" style="background-image: url('<%= @concert.memoryphoto.url %>'); background-size: cover; background-position: center;">
+
 </div>
 
 <div class="row title-bar title-bar-blue">
@@ -8,12 +8,13 @@
 
 <div class="row">
   <div class="col-md-6 col-sm-12 memory-box-single">
+    <%= image_tag 'ziggo.jpg' %>
     <h4>MEMORY DETAILS:</h4>
     <div class="memory-details-single">
       <table>
         <tbody>
           <tr>
-            <td><i class="fa fa-universal-access" aria-hidden="true"></i></td>
+            <td><i class="fa fa-music" aria-hidden="true"></i></td>
             <td><%= @concert.artist %></td>
           </tr>
           <tr>

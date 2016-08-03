@@ -7,48 +7,53 @@
 </div>
 
 <div class="row">
-  <%= form_tag("/concerts/#{@concert.id}", method: "patch") do |f| %>
+  <%= form_for @concert, as: :concert, url: {action: "update"} do |f| %>
   <div class="field">
-    <%= label_tag(:title, 'Memory title') %><br>
-    <%= text_field(:concert, :title) %>
+    <%= f.label(:title, 'Memory title') %><br>
+    <%= f.text_field(:title) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:artist, 'Artist/Band') %><br>
-    <%= text_field(:concert, :artist) %>
+    <%= f.label(:artist, 'Artist/Band') %><br>
+    <%= f.text_field(:artist) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:location) %><br>
-    <%= text_field(:concert, :location) %>
+    <%= f.label(:location) %><br>
+    <%= f.text_field(:location) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:date) %><br>
-    <%= date_field(:concert, :date) %><br><br>
+    <%= f.label(:date) %><br>
+    <%= f.date_field(:date) %><br><br>
   </div>
 
   <div class="field">
-    <%= label_tag(:venue) %><br>
-    <%= text_field(:concert, :venue) %>
+    <%= f.label(:venue) %><br>
+    <%= f.text_field(:venue) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:friends) %><br>
-    <%= text_field(:concert, :friends) %>
+    <%= f.label(:friends) %><br>
+    <%= f.text_field(:friends) %>
   </div>
 
   <div class="field">
-    <%= label_tag(:notes) %><br>
-    <%= text_area(:concert, :notes) %>
+    <%= f.label(:notes) %><br>
+    <%= f.text_area(:notes) %>
   </div>
 
-    <div class="field hidden">
-      <%= label_tag(:category) %><br>
-      <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
-    </div>
-    <div class="actions submit submit-blue">
-      <%= submit_tag("Submit") %>
-    </div>
+  <div class="field upload">
+    <%= f.label :memoryphoto %>:
+    <%= f.file_field(:memoryphoto) %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label(:category) %><br>
+    <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
+  </div>
+  <div class="actions submit submit-blue">
+    <%= submit_tag("Submit") %>
+  </div>
   <% end %>
 </div>

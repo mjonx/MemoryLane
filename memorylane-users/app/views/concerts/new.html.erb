@@ -7,7 +7,7 @@
 </div>
 
 <div class="row">
-  <%= form_for @concert, as: :concert, url: '/concerts' do |f| %>
+  <%= form_for @concert, as: :concert, url: {action: 'create'} do |f| %>
     <div class="field">
       <%= f.label(:title, 'Memory title') %><br>
       <%= f.text_field(:title) %>
@@ -43,7 +43,7 @@
       <%= f.text_area(:notes) %>
     </div>
 
-    <div>
+    <div class="field upload">
       <%= f.label :memoryphoto %>:
       <%= f.file_field(:memoryphoto) %>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801202510) do
+ActiveRecord::Schema.define(version: 20160803124620) do
 
   create_table "achievements", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20160801202510) do
     t.string   "memoryphoto_content_type"
     t.integer  "memoryphoto_file_size"
     t.datetime "memoryphoto_updated_at"
+    t.string   "startpoint"
+    t.date     "enddate"
   end
 
   create_table "trips", force: :cascade do |t|
