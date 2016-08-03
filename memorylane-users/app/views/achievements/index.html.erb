@@ -6,33 +6,27 @@
   <h3>My achievement memories</h3>
 </div>
 
-<div class="row">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-  </thead>
-    <tbody>
-      <% @achievements.each do |achievements| %>
-      <% if achievements.user_id == current_user.id %>
-        <tr>
-          <td><%= achievements.title %></td>
-          <td><%= achievements.category %></td>
-          <td><%= link_to 'Show', "/achievements/#{achievements.id}" %></td>
-          <td><%= link_to 'Edit', "/achievements/#{achievements.id}/edit" %></td>
-          <td><%= link_to 'Delete', "/achievements/#{achievements.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
-        </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row cards">
+  <% @achievements.each do |achievement| %>
+    <% if achievement.user_id == current_user.id %>
+      <div class="col-lg-4 col-md-6 col-sm-12 memory-card">
+        <%= image_tag('icons/pin-medal.svg', class: "memory-pin") %>
+        <div class="memory-box">
+          <h4><%= achievement.title.upcase %></h4>
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= achievement.location %></p>
+          <p><i class="fa fa-trophy" aria-hidden="true"></i> <%= achievement.reward %></p>
+          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= achievement.date.to_formatted_s(:long) %></p>
+          <div class="btn btn-pink">
+            <%= link_to 'VIEW MEMORY', "/#{achievement.category.downcase.pluralize}/#{achievement.id}" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
-  <br><br>
+
+<div class="row">
   <%= link_to 'Add achievement', "/achievements/new" %><br>
   <%= link_to 'All memories', "/memories" %>
 </div>

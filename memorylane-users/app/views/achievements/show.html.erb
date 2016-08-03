@@ -1,5 +1,4 @@
-<div class="row header achievement-header">
-  <%= image_tag('icons/icon-medal-fill.svg', class: "memory-icon") %>
+<div class="row header achievement-header" style="background-image: url('<%= @achievement.memoryphoto.url %>'); background-size: cover; background-position: center;">
 </div>
 
 <div class="row title-bar title-bar-pink">
@@ -7,11 +6,47 @@
 </div>
 
 <div class="row">
-  <p>Title: <%= @achievement.title %></p>
-  <p>Date: <%= @achievement.date %></p>
+  <div class="col-md-6 col-sm-12 memory-box-single">
+    <%= image_tag 'route.jpg' %>
+    <h4>MEMORY DETAILS:</h4>
+    <div class="memory-details-single">
+      <table>
+        <tbody>
+          <tr>
+            <td><i class="fa fa-map-marker" aria-hidden="true"></i></td>
+            <td><%= @achievement.achievement %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-trophy" aria-hidden="true"></i></td>
+            <td><%= @achievement.reward %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-calendar-o" aria-hidden="true"></i></td>
+            <td><%= @achievement.date.to_formatted_s(:long)  %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-map-marker" aria-hidden="true"></i></td>
+            <td><%= @achievement.location %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users" aria-hidden="true"></i></td>
+            <td><%= @achievement.friends %></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+            <td><%= @achievement.notes %></td>
+          </tr>
+        </tbody>
+      </table>
 
-  <%= link_to 'Edit', "/achievements/#{@achievement.id}/edit" %><br>
-  <%= link_to 'Delete', "/achievements/#{@achievement.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
-  <%= link_to 'Back to achievements', '/achievements' %><br>
-  <%= link_to 'All memories', '/memories' %>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-12 memory-box-btns">
+    <div class="col-md-6 col-sm-6 col-xs-6 edit-btn">
+      <i class="fa fa-pencil" aria-hidden="true"></i> <%= link_to 'Edit', "/achievements/#{@achievement.id}/edit" %><br>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6 delete-btn">
+      <i class="fa fa-trash-o" aria-hidden="true"></i> <%= link_to 'Delete', "/achievements/#{@achievement.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
+    </div>
+  </div>
 </div>

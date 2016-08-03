@@ -1,7 +1,6 @@
 class ConcertsController < ApplicationController
   def index
-    # byebug
-    @concerts = Concert.all
+    @concerts = Concert.all.concerts.order("date desc")
   end
 
   def show
@@ -16,11 +15,9 @@ class ConcertsController < ApplicationController
   end
 
   def create
-    byebug
     @concert = current_user.concerts.build(concert_params)
     @concert.save
     if @concert.save
-      # byebug
       redirect_to '/concerts'
     else
       render action: 'new'
@@ -32,7 +29,6 @@ class ConcertsController < ApplicationController
   end
 
   def update
-    byebug
     @concert = Concert.find(params[:id])
     if @concert.update(concert_params)
       redirect_to '/concerts'

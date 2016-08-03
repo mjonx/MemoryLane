@@ -7,23 +7,53 @@
 </div>
 
 <div class="row">
-  <%= form_tag("/achievements", method: "post") do |f| %>
+  <%= form_for @achievement, as: :achievement, url: {action: 'create'} do |f| %>
     <div class="field">
-      <%= label_tag(:title) %><br>
-      <%= text_field(:achievement, :title) %><br><br>
+      <%= f.label(:title, 'Memory title') %><br>
+      <%= f.text_field(:title) %>
     </div>
 
     <div class="field">
-      <%= label_tag(:date) %><br>
-      <%= date_field(:achievement, :date) %><br><br>
+      <%= f.label(:achievement) %><br>
+      <%= f.text_field(:achievement) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:reward) %><br>
+      <%= f.text_field(:reward) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:date) %><br>
+      <%= f.date_field(:date) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:location) %><br>
+      <%= f.text_field(:location) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:friends) %><br>
+      <%= f.text_field(:friends) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:notes) %><br>
+      <%= f.text_area(:notes) %>
+    </div>
+
+    <div class="field upload">
+      <%= f.label :memoryphoto %>:
+      <%= f.file_field(:memoryphoto) %>
     </div>
 
     <div class="field hidden">
-      <%= label_tag(:category) %><br>
+      <%= f.label(:category) %><br>
       <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
     </div>
     <div class="actions submit submit-pink">
-      <%= submit_tag("Submit") %>
+      <%= submit_tag("CREATE MEMORY") %>
     </div>
   <% end %>
 </div>

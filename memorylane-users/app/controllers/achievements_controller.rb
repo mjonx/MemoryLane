@@ -1,6 +1,6 @@
 class AchievementsController < ApplicationController
   def index
-    @achievements = Achievement.all
+    @achievements = Achievement.all.achievements.order("date desc")
   end
 
   def show
@@ -48,7 +48,7 @@ class AchievementsController < ApplicationController
   private
 
   def achievement_params
-    params.require(:achievement).permit(:title, :date, :user_id)
+    params.require(:achievement).permit(:title, :achievement, :reward, :date, :location, :friends, :notes, :memoryphoto, :user_id)
   end
 
 end

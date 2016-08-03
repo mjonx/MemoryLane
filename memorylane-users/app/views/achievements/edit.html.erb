@@ -6,6 +6,57 @@
   <h3>Editing <%= @achievement.title %></h3>
 </div>
 
+<div class="row">
+  <%= form_for @achievement, as: :achievement, url: {action: 'update'} do |f| %>
+    <div class="field">
+      <%= f.label(:title, 'Memory title') %><br>
+      <%= f.text_field(:title) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:achievement) %><br>
+      <%= f.text_field(:achievement) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:reward) %><br>
+      <%= f.text_field(:reward) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:date) %><br>
+      <%= f.date_field(:date) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:location) %><br>
+      <%= f.text_field(:location) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:friends) %><br>
+      <%= f.text_field(:friends) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:notes) %><br>
+      <%= f.text_area(:notes) %>
+    </div>
+
+    <div class="field upload">
+      <%= f.label :memoryphoto %>:
+      <%= f.file_field(:memoryphoto) %>
+    </div>
+
+    <div class="field hidden">
+      <%= f.label(:category) %><br>
+      <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
+    </div>
+    <div class="actions submit submit-pink">
+      <%= submit_tag("UPDATE MEMORY") %>
+    </div>
+  <% end %>
+</div>
 
 
 <div class="row">

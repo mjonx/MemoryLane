@@ -1,6 +1,6 @@
 class MemoriesController < ApplicationController
   def index
-    @memories = current_user.memories
+    @memories = current_user.memories.order("date desc")
   end
 
   def show

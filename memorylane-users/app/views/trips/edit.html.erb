@@ -7,23 +7,53 @@
 </div>
 
 <div class="row">
-  <%= form_tag("/trips/#{@trip.id}", method: "patch") do |f| %>
+  <%= form_for @trip, as: :trip, url: {action: "update"} do |f| %>
     <div class="field">
-      <%= label_tag(:title) %><br>
-      <%= text_field(:trip, :title) %><br><br>
+      <%= f.label(:title, 'Memory title') %><br>
+      <%= f.text_field(:title) %>
     </div>
 
     <div class="field">
-      <%= label_tag(:destination) %><br>
-      <%= text_field(:trip, :destination) %><br><br>
+      <%= f.label(:location, 'From') %><br>
+      <%= f.text_field(:location) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:destination, 'To') %><br>
+      <%= f.text_field(:destination) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:date, 'Start date') %><br>
+      <%= f.date_field(:date) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:enddate, 'End date') %><br>
+      <%= f.date_field(:enddate) %><br><br>
+    </div>
+
+    <div class="field">
+      <%= f.label(:friends) %><br>
+      <%= f.text_field(:friends) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:notes) %><br>
+      <%= f.text_area(:notes) %>
+    </div>
+
+    <div class="field upload">
+      <%= f.label :memoryphoto %>:
+      <%= f.file_field(:memoryphoto) %>
     </div>
 
     <div class="field hidden">
-      <%= label_tag(:category) %><br>
+      <%= f.label(:category) %><br>
       <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
     </div>
     <div class="actions submit submit-green">
-      <%= submit_tag("Submit") %>
+      <%= submit_tag("UPDATE MEMORY") %>
     </div>
   <% end %>
 </div>

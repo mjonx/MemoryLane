@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
+    @trips = Trip.all.trips.order("date desc")
   end
 
   def show
@@ -48,6 +48,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :destination, :user_id)
+    params.require(:trip).permit(:title, :location, :destination, :date, :enddate, :friends, :notes, :memoryphoto, :user_id)
   end
 end

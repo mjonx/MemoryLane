@@ -6,49 +6,26 @@
   <h3>My trips</h3>
 </div>
 
-<div class="row">
+<div class="row cards">
   <% @trips.each do |trip| %>
     <% if trip.user_id == current_user.id %>
-      <div class="col-sm-4 col-xs-12 memory-card">
-        <h4><%= trip.title %></h4>
-        <p><%= trip.location %></p>
-        <p><%= trip.date %></p>
-        <p><%= link_to 'Show', "/#{trip.category.downcase.pluralize}/#{trip.id}" %></p>
+      <div class="col-lg-4 col-md-6 col-sm-12 memory-card">
+        <%= image_tag('icons/pin-map.svg', class: "memory-pin") %>
+        <div class="memory-box">
+          <h4><%= trip.title.upcase %></h4>
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= trip.location %></p>
+          <p><i class="fa fa-paper-plane" aria-hidden="true"></i> <%= trip.destination %></p>
+          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= trip.date.to_formatted_s(:long) %></p>
+          <div class="btn btn-green">
+            <%= link_to 'VIEW MEMORY', "/#{trip.category.downcase.pluralize}/#{trip.id}" %>
+          </div>
+        </div>
       </div>
     <% end %>
   <% end %>
 </div>
 
-
-
-
 <div class="row">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-  </thead>
-    <tbody>
-      <% @trips.each do |trips| %>
-      <% if trips.user_id == current_user.id %>
-        <tr>
-          <td><%= trips.title %></td>
-          <td><%= trips.category %></td>
-          <td><%= link_to 'Show', "/trips/#{trips.id}" %></td>
-          <td><%= link_to 'Edit', "/trips/#{trips.id}/edit" %></td>
-          <td><%= link_to 'Delete', "/trips/#{trips.id}", method: :delete, data: {confirm: 'are you sure?'} %></td>
-        </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br><br>
   <%= link_to 'Add trip', "/trips/new" %><br>
   <%= link_to 'All memories', "/memories" %>
 </div>

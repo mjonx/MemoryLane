@@ -1,5 +1,4 @@
 <div class="row header concert-header" style="background-image: url('<%= @concert.memoryphoto.url %>'); background-size: cover; background-position: center;">
-
 </div>
 
 <div class="row title-bar title-bar-blue">
@@ -23,7 +22,7 @@
           </tr>
           <tr>
             <td><i class="fa fa-calendar-o" aria-hidden="true"></i></td>
-            <td><%= @concert.date %></td>
+            <td><%= @concert.date.to_formatted_s(:long) %></td>
           </tr>
           <tr>
             <td><i class="fa fa-building-o" aria-hidden="true"></i></td>
@@ -43,10 +42,10 @@
     </div>
   </div>
   <div class="col-md-6 col-sm-12 memory-box-btns">
-    <div class="col-md-6 col-sm-6 edit-btn">
+    <div class="col-md-6 col-sm-6 col-xs-6 edit-btn">
       <i class="fa fa-pencil" aria-hidden="true"></i> <%= link_to 'Edit', "/concerts/#{@concert.id}/edit" %><br>
     </div>
-    <div class="col-md-6 col-sm-6 delete-btn">
+    <div class="col-md-6 col-sm-6 col-xs-6 delete-btn">
       <i class="fa fa-trash-o" aria-hidden="true"></i> <%= link_to 'Delete', "/concerts/#{@concert.id}", method: :delete, data: {confirm: 'are you sure?'} %><br>
     </div>
   </div>

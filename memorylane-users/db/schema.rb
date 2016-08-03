@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803124620) do
+ActiveRecord::Schema.define(version: 20160803171352) do
 
   create_table "achievements", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20160803124620) do
     t.datetime "memoryphoto_updated_at"
     t.string   "startpoint"
     t.date     "enddate"
+    t.string   "achievement"
+    t.string   "reward"
   end
 
   create_table "trips", force: :cascade do |t|
