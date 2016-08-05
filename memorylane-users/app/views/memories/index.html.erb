@@ -15,7 +15,7 @@
         <div class="memory-box">
           <h4><%= memory.title %></h4>
           <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= memory.location %></p>
-          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= memory.date.to_formatted_s(:long)  %></p>
+          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= memory.date.try(:to_formatted_s, :long)  %></p>
           <button class='btn btn-<%= memory_button_color(memory.category) %>'>
             <%= link_to 'VIEW MEMORY', "/#{memory.category.downcase.pluralize}/#{memory.id}" %>
           </button>

@@ -22,7 +22,7 @@
       <!-- Page content -->
       <div id="page-content-wrapper">
         <nav class="navbar navbar-default">
-          <%= image_tag 'logo_thick.svg' %>
+          <%= link_to memories_path do %><%= image_tag 'logo_thick.svg' %><% end %>
         </nav>
     <% end %>
         <%= yield %>

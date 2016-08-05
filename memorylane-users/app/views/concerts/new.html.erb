@@ -53,7 +53,7 @@
       <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
     </div>
     <div class="actions submit submit-blue">
-      <%= submit_tag("Submit") %>
+      <%= submit_tag("ADD MEMORY") %>
     </div>
   <% end %>
 </div>

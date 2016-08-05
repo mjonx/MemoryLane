@@ -22,7 +22,7 @@
           </tr>
           <tr>
             <td><i class="fa fa-calendar-o" aria-hidden="true"></i></td>
-            <td><%= @concert.date.to_formatted_s(:long) %></td>
+            <td><%= @concert.date.try(:to_formatted_s, :long) %></td>
           </tr>
           <tr>
             <td><i class="fa fa-building-o" aria-hidden="true"></i></td>

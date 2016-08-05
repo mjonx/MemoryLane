@@ -25,12 +25,12 @@
 
     <div class="field">
       <%= f.label(:date, 'Start date') %><br>
-      <%= f.date_field(:date) %><br><br>
+      <%= f.date_field(:date) %>
     </div>
 
     <div class="field">
       <%= f.label(:enddate, 'End date') %><br>
-      <%= f.date_field(:enddate) %><br><br>
+      <%= f.date_field(:enddate) %>
     </div>
 
     <div class="field">
@@ -53,7 +53,7 @@
       <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
     </div>
     <div class="actions submit submit-green">
-      <%= submit_tag("CREATE MEMORY") %>
+      <%= submit_tag("ADD MEMORY") %>
     </div>
   <% end %>
 </div>

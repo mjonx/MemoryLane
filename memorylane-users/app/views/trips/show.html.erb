@@ -7,7 +7,7 @@
 
 <div class="row">
   <div class="col-md-6 col-sm-12 memory-box-single">
-    <%= image_tag 'route.jpg' %>
+    <!-- <%= image_tag 'route.jpg' %> -->
     <h4>MEMORY DETAILS:</h4>
     <div class="memory-details-single">
       <table>
@@ -22,11 +22,11 @@
           </tr>
           <tr>
             <td><i class="fa fa-calendar-o" aria-hidden="true"></i></td>
-            <td><%= @trip.date.to_formatted_s(:long)  %></td>
+            <td><%= @trip.date.try(:to_formatted_s, :long) %></td>
           </tr>
           <tr>
             <td><i class="fa fa-calendar-check-o" aria-hidden="true"></i></td>
-            <td><%= @trip.enddate.to_formatted_s(:long)  %></td>
+            <td><%= @trip.enddate.try(:to_formatted_s, :long)  %></td>
           </tr>
           <tr>
             <td><i class="fa fa-users" aria-hidden="true"></i></td>

@@ -15,17 +15,17 @@
 
     <div class="field">
       <%= f.label(:achievement) %><br>
-      <%= f.text_field(:achievement) %><br><br>
+      <%= f.text_field(:achievement) %>
     </div>
 
     <div class="field">
       <%= f.label(:reward) %><br>
-      <%= f.text_field(:reward) %><br><br>
+      <%= f.text_field(:reward) %>
     </div>
 
     <div class="field">
       <%= f.label(:date) %><br>
-      <%= f.date_field(:date) %><br><br>
+      <%= f.date_field(:date) %>
     </div>
 
     <div class="field">
@@ -54,29 +54,6 @@
     </div>
     <div class="actions submit submit-pink">
       <%= submit_tag("UPDATE MEMORY") %>
-    </div>
-  <% end %>
-</div>
-
-
-<div class="row">
-  <%= form_tag("/achievements/#{@achievement.id}", method: "patch") do |f| %>
-    <div class="field">
-      <%= label_tag(:title) %><br>
-      <%= text_field(:achievement, :title) %><br><br>
-    </div>
-
-    <div class="field">
-      <%= label_tag(:date) %><br>
-      <%= date_field(:achievement, :date) %><br><br>
-    </div>
-
-    <div class="field hidden">
-      <%= label_tag(:category) %><br>
-      <%= select(:category, Memory.categories.map {|r| [r.humanize, r.camelcase]}, {}, disabled: @category != "Memory") %>
-    </div>
-    <div class="actions submit submit-pink">
-      <%= submit_tag("Submit") %>
     </div>
   <% end %>
 </div>

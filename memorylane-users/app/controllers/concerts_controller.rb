@@ -15,11 +15,11 @@ class ConcertsController < ApplicationController
   end
 
   def create
-    @concert = current_user.concerts.build(concert_params)
-    @concert.save
-    if @concert.save
+    @concert = current_user.concerts.create(concert_params)
+    if @concert.update(concert_params)
       redirect_to '/concerts'
     else
+      @concert.destroy
       render action: 'new'
     end
   end

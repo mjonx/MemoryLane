@@ -3,7 +3,7 @@
 </div>
 
 <div class="row title-bar title-bar-pink">
-  <h3>My achievement memories</h3>
+  <h3>My achievements</h3>
 </div>
 
 <div class="row cards">
@@ -15,7 +15,7 @@
           <h4><%= achievement.title.upcase %></h4>
           <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= achievement.location %></p>
           <p><i class="fa fa-trophy" aria-hidden="true"></i> <%= achievement.reward %></p>
-          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= achievement.date.to_formatted_s(:long) %></p>
+          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= achievement.date.try(:to_formatted_s, :long) %></p>
           <div class="btn btn-pink">
             <%= link_to 'VIEW MEMORY', "/#{achievement.category.downcase.pluralize}/#{achievement.id}" %>
           </div>

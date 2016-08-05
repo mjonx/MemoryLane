@@ -13,8 +13,7 @@ class AchievementsController < ApplicationController
   end
 
   def create
-    @achievement = current_user.achievements.build(achievement_params)
-    @achievement.save
+    @achievement = current_user.achievements.create(achievement_params)
     if @achievement.save
       redirect_to '/achievements'
     else

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/memories', to: 'memories#index'
   get '/memories/new', to: 'memories#new'
+  get '/categories', to: 'memories#categories'
+  get '/locations', to: 'memories#locations'
 
   get '/trips', to: 'trips#index'
   get '/trips/new', to: 'trips#new'

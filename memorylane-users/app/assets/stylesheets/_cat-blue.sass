@@ -2,6 +2,9 @@
   background-image: url("cover-concerts.jpg")
   min-height: 240px
 
+  img
+    max-width: 100px
+
 .submit-blue input
   background-color: $main-blue
 
@@ -11,8 +14,6 @@
 .row.title-bar-blue
   padding: 20px
   background-color: $main-blue
-  color: $primary-color
-  text-transform: uppercase
 
 .btn-blue
   background-color: $main-blue
@@ -39,9 +40,17 @@
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px)
   .concert-header
-    min-height: 300px
+    min-height: 320px
+
+  .concert-header
+    img
+      max-width: 120px
 
 /* Large desktops and laptops */
 @media (min-width: 992px)
   .concert-header
-    min-height: 320px
+    min-height: 340px
+
+  .concert-header
+    img
+      max-width: 150px

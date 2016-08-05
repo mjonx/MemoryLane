@@ -7,8 +7,8 @@
             <% end %>
         </li>
         <li><%= link_to memories_path do %><%= image_tag 'icons/icon-home-pnk.svg' %><p>My memories</p><% end %></li>
-        <li><%= link_to root_path do %><%= image_tag 'icons/icon-locations-pnk.svg' %><p>Locations</p><% end %></li>
-        <li><%= link_to root_path do %><%= image_tag 'icons/icon-categories-pnk.svg' %><p>Categories</p><% end %></li>
+        <li><%= link_to locations_path do %><%= image_tag 'icons/icon-locations-pnk.svg' %><p>Locations</p><% end %></li>
+        <li><%= link_to categories_path do %><%= image_tag 'icons/icon-categories-pnk.svg' %><p>Categories</p><% end %></li>
         <li><%= link_to edit_user_registration_path do %><%= image_tag 'icons/icon-gear-pnk.svg' %><p>Edit profile</p><% end %></li>
         <li><%= link_to destroy_user_session_path, :method => :delete do %><%= image_tag 'icons/icon-logout-pnk.svg' %><p>Log out</p><% end %></li>
 

@@ -15,7 +15,7 @@
           <h4><%= trip.title.upcase %></h4>
           <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= trip.location %></p>
           <p><i class="fa fa-paper-plane" aria-hidden="true"></i> <%= trip.destination %></p>
-          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= trip.date.to_formatted_s(:long) %></p>
+          <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <%= trip.date.try(:to_formatted_s, :long) %></p>
           <div class="btn btn-green">
             <%= link_to 'VIEW MEMORY', "/#{trip.category.downcase.pluralize}/#{trip.id}" %>
           </div>
